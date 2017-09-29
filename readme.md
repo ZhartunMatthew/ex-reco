@@ -17,7 +17,7 @@ Create your own dataset.txt for intent recognition and put it here:
     
 Data format:
     
-    <number><separetor><query>
+    <number><separator><query>
     0   hi
     0   hello
     0   greeting
