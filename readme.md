@@ -1,6 +1,6 @@
 # exReco
 
-Intent recognizer and entities extractor written on Java using Apache OpenNLP.
+Intent recognition and entities extraction written on Java using Apache OpenNLP.
 
 ### Getting started
 
