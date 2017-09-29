@@ -21,7 +21,7 @@ public class EntityExtractor {
     private static final Logger LOG = LoggerFactory.getLogger(EntityExtractor.class);
     private NameFinderME entityFinder = null;
 
-    public void train(String trainDirectory) {
+    public void train(String trainDirectory, boolean validate) {
         LOG.info("============== TRAINING STARTED ================");
         try {
             ObjectStream<String> fileStream = new PlainTextByLineStream(new FileReader(trainDirectory + "/dataset.txt"));
@@ -33,7 +33,9 @@ public class EntityExtractor {
             ex.printStackTrace();
         }
         LOG.info("============== TRAINING FINISHED ================");
-        this.validate(trainDirectory + "/validate.txt");
+        if (validate) {
+            this.validate(trainDirectory + "/validate.txt");
+        }
     }
 
     public HashMap<String, String> extract(String str) {

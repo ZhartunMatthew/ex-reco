@@ -2,11 +2,8 @@ package demo.nlp;
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Map.Entry;
 
-import demo.Main;
 import javafx.util.Pair;
 import opennlp.tools.doccat.DoccatModel;
 import opennlp.tools.doccat.DocumentCategorizerME;
@@ -21,55 +18,44 @@ import org.slf4j.LoggerFactory;
 public class IntentRecognizer {
 
     private DoccatModel model;
+    private HashMap<String, String> intentMapper = new HashMap<>();
     private static final Logger LOG = LoggerFactory.getLogger(IntentRecognizer.class);
 
-    public void train(String trainingDirectory) {
-        this.training(trainingDirectory, 0, 50);
+    public IntentRecognizer(String intentsMappingFile) {
+        try (BufferedReader br = new BufferedReader(new FileReader(intentsMappingFile))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] entries = line.split("::");
+                intentMapper.put(entries[0], entries[1]);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    public void train(String trainingDirectory, int c, int iterations) {
-        this.training(trainingDirectory, c, iterations);
-    }
-
-    private void training(String trainingDirectory, int c, int iterations) {
+    public void train(String trainingDirectory, boolean validate) {
         try (InputStream inputStream = new FileInputStream(trainingDirectory + "/dataset.txt")) {
             ObjectStream<String> lineStream = new PlainTextByLineStream(inputStream, "UTF-8");
             ObjectStream<DocumentSample> sampleStream = new DocumentSampleStream(lineStream);
-            model = DocumentCategorizerME.train("en", sampleStream, c, iterations);
+            model = DocumentCategorizerME.train("en", sampleStream, 0, 50);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        this.validate(trainingDirectory + "/validate.txt");
+        if (validate) {
+            this.validate(trainingDirectory + "/validate.txt");
+        }
     }
 
     public Pair<Integer, String> parse(String sentence) {
         DocumentCategorizerME classifier = new DocumentCategorizerME(model);
         double[] outcomes = classifier.categorize(sentence);
         String category = classifier.getBestCategory(outcomes);
-
-        String[] intentNames = {"hello", "bye", "book_room"};
         Pair<Integer, String> intent;
-        Integer num = -1;
 
-        switch (category) {
-            case "0":
-                num = new Integer(category);
-                intent = new Pair<>(num, intentNames[num]);
-                break;
-
-            case "1":
-                num = new Integer(category);
-                intent = new Pair<>(num, intentNames[num]);
-                break;
-
-            case "2":
-                num = new Integer(category);
-                intent = new Pair<>(num, intentNames[num]);
-                break;
-
-            default:
-                intent = new Pair<>(num, "N/A");
+        try {
+            intent = new Pair<>(Integer.parseInt(category), intentMapper.get(category));
+        } catch (Exception ex) {
+            intent = new Pair<>(Integer.parseInt("-1"), "undefined");
         }
 
         return intent;
@@ -98,7 +84,7 @@ public class IntentRecognizer {
         Pair<Integer, String> actual = null;
 
         for (int i = 1; i < entries.length; i++) {
-            expected = new Pair<>(new Integer(entries[1]), entries[2]);
+            expected = new Pair<>(new Integer(entries[1]), intentMapper.get(entries[1]));
         }
         actual = this.parse(entries[0]);
 

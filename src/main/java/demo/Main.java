@@ -17,19 +17,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        IntentRecognizer intentRecognizer = new IntentRecognizer();
+        IntentRecognizer intentRecognizer = new IntentRecognizer(INTENT_TRAIN_DIRECTORY + "/intents_mapping.txt");
         EntityExtractor entityExtractor = new EntityExtractor();
 
-        intentRecognizer.train(INTENT_TRAIN_DIRECTORY);
-        entityExtractor.train(ENTITY_TRAIN_DIRECTORY);
+        intentRecognizer.train(INTENT_TRAIN_DIRECTORY, true);
+        entityExtractor.train(ENTITY_TRAIN_DIRECTORY, true);
 
         Scanner scanner = new Scanner(System.in);
+
         while(true) {
             System.out.print("> ");
             String line = scanner.nextLine();
             if(line.equals("quit")) {
                 break;
             }
+
             Pair<Integer, String> intent = intentRecognizer.parse(line);
             Map<String, String> entities = entityExtractor.extract(line);
 

@@ -1,5 +1,5 @@
 Need a room on 10 floor in 15:00::time=15:00::floor=10
-Book at 15:00 room on 6::time=15:00::floor=10
+Book at 15:00 room on 6::time=15:00::floor=6
 I want a room at 17:00 on 8::time=17:00::floor=8
 Book room on 8 floor at 17:00::time=17:00::floor=8
 Book me at 16:00 room 901-2::time=16:00::room=901-2
