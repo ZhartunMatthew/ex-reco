@@ -1,0 +1,10 @@
+Hi man::0::hello
+Hello everyone::0::hello
+Greetings::0::hello
+Good evening::0::hello
+Have a good day::1::bye
+See later::1::bye
+Bye::1::bye
+Book a room for me::2::book_room
+Need a room::2::book_room
+Get a room::2::book_room

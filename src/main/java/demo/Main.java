@@ -1,7 +1,8 @@
 package demo;
 
 import demo.nlp.EntityExtractor;
-import demo.nlp.IntentExtractor;
+import demo.nlp.IntentRecognizer;
+import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,10 +17,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        IntentExtractor intentExtractor = new IntentExtractor();
+        IntentRecognizer intentRecognizer = new IntentRecognizer();
         EntityExtractor entityExtractor = new EntityExtractor();
 
-        intentExtractor.train(INTENT_TRAIN_DIRECTORY);
+        intentRecognizer.train(INTENT_TRAIN_DIRECTORY);
         entityExtractor.train(ENTITY_TRAIN_DIRECTORY);
 
         Scanner scanner = new Scanner(System.in);
@@ -29,12 +30,13 @@ public class Main {
             if(line.equals("quit")) {
                 break;
             }
-            String intent = intentExtractor.parse(line);
+            Pair<Integer, String> intent = intentRecognizer.parse(line);
             Map<String, String> entities = entityExtractor.extract(line);
 
-            LOG.info("Intent:   {}", intent);
+            LOG.info("Intent:   {}", intent.getValue());
             LOG.info("Entities: {}", entities.toString());
             LOG.info("==============================================");
+
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
