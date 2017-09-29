@@ -1,0 +1,47 @@
+Give me a room
+I want a room
+I need a room
+Book me a room
+Book room
+One room
+Book room for me
+Book for me
+Want room
+Book me a room at <START:time> 13:00 <END> on <START:floor> 4 floor <END>
+I need a room at <START:time> 17:00 <END> on <START:floor> 9 floor <END>
+Need meeting room at <START:time> 18:00 <END> on <START:floor> 9 floor <END>
+Book room at <START:time> 2 <END> on <START:floor> 12 floor <END>
+Book room at <START:time> 18:00 <END> on <START:floor> 6 floor <END>
+Room at <START:time> 13:00 <END> on <START:floor> 8 <END>
+Give room at <START:time> 13:00 <END> on <START:floor> 5 <END>
+Want a room on <START:floor> 13  <END> at <START:time> 15:00 <END>
+Need a room at <START:time> 16:00 <END> on <START:floor> 9  <END>
+Book room at <START:time> 08:00 <END> on <START:floor> 12 <END> floor
+Book room <START:room> 0906 <END> at <START:time> 12:00 <END>
+Book room <START:room> 1302 <END> at <START:time> 15:30 <END>
+Room <START:room> 0903-1 <END> at <START:time> 14:30 <END>
+Took a room <START:room> 701 <END> at <START:time> 14:00 <END>
+Book room <START:room> 1204-1 <END> at <START:time> 17:00 <END>
+Want <START:room> 0903-2 <END> at <START:time> 16:00 <END>
+I need <START:room> 803 <END> at <START:time> 13:00 <END>
+I want <START:room> 1206 <END> at <START:time> 14:00 <END>
+I want a room on <START:floor> 9 <END> floor
+Want room on <START:floor> 8 <END> floor
+Need room on <START:floor> 10 <END> floor
+Book room on <START:floor> 5 <END> floor
+Book room on <START:floor> 3 <END> floor
+room on <START:floor> 5 <END>
+Book room on <START:floor> 8 <END> floor
+Room at <START:time> 6 <END>
+Book room at <START:time> 13 <END>
+Give me a room at <START:time> 15:00 <END>
+Need meeting room at <START:time> 13:00 <END>
+Room on meeting at <START:time> 17 <END>
+Book room at <START:time> 10:00 <END>
+Room at <START:time> 13:30 <END>
+Need room <START:room> 1201 <END>
+Need room <START:room> 1501-1 <END>
+Want <START:room> 0906-2 <END>
+Book room <START:room> 1001-3 <END>
+Book me room <START:room> 1201 <END>
+Book room <START:room> 1303 <END>

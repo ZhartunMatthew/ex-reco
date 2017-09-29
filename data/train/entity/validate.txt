@@ -1,0 +1,20 @@
+Need a room on 10 floor in 15:00::time=15:00::floor=10
+Book at 15:00 room on 6::time=15:00::floor=10
+I want a room at 17:00 on 8::time=17:00::floor=8
+Book room on 8 floor at 17:00::time=17:00::floor=8
+Book me at 16:00 room 901-2::time=16:00::room=901-2
+Book 804-1 at 15:00::time=15:00::room=804-1
+Book room 906-1 at 16:00::time=16:00::room=906-1
+Room 1003-2 at 16:40::time=16:40::room=1003-2
+Need a room on 7 floor::floor=7
+Book me a room on 10 floor::floor=10
+Book me a room on 5::floor=5
+Need room on 11::floor=11
+Book room at 18:00::time=18:00
+Need room for meeting at 17:00::time=17:00
+Room for meeting at 15:00::time=15:00
+Book me room at 14:00::time=14:00
+Give me room 1301::room=1301
+Give room 1001::room=1001
+Need room 906::room=906
+Book me a room 901-1::room=901-1

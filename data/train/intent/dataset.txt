@@ -1,0 +1,21 @@
+0   Hi
+0   Hello
+0   Greetings
+0   Hi there
+0   Good day
+0   Good morning
+0   Howdy
+0   Greet
+1   Bye
+1   Have a nice day
+1   See you
+1   See you soon
+2   Give me a room
+2   I want a room
+2   I need a room
+2   Book me a room
+2   Book room
+2   One room
+2   Book room for me
+2   Book for me
+2   Want room
