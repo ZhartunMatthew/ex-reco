@@ -21,12 +21,13 @@ public class EntityExtractor {
     private static final Logger LOG = LoggerFactory.getLogger(EntityExtractor.class);
     private NameFinderME entityFinder = null;
 
-    public void train(String trainDirectory, boolean validate) {
+    public void train(String trainDirectory, String language, boolean validate) {
         LOG.info("============== TRAINING STARTED ================");
         try {
-            ObjectStream<String> fileStream = new PlainTextByLineStream(new FileReader(trainDirectory + "/dataset.txt"));
+            ObjectStream<String> fileStream =
+                    new PlainTextByLineStream(new FileReader(trainDirectory + "/dataset.txt"));
             ObjectStream<NameSample> sampleStream = new NameSampleDataStream(fileStream);
-            TokenNameFinderModel model = NameFinderME.train("en", "train", sampleStream,
+            TokenNameFinderModel model = NameFinderME.train(language, "train", sampleStream,
                                                             Collections.<String, Object>emptyMap());
             entityFinder = new NameFinderME(model);
         } catch (IOException ex) {
@@ -72,13 +73,12 @@ public class EntityExtractor {
         String[] entries = query.split("::");
 
         HashMap<String, String> expected = new HashMap<>();
-        HashMap<String, String> actual = new HashMap<>();
+        HashMap<String, String> actual = this.extract(entries[0]);
 
         for (int i = 1; i < entries.length; i++) {
             String[] temp = entries[i].split("=");
             expected.put(temp[0], temp[1]);
         }
-        actual = this.extract(entries[0]);
 
         LOG.info("Query:    {}", entries[0]);
         LOG.info("Actual:   {}", actual);

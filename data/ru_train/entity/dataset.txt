@@ -1,0 +1,50 @@
+Пока
+Хорошего дня
+Увидимся
+Бывай
+Дай мне комнату
+Я хочу комнату
+Мне нужна комната
+Забукай мне комнату
+Забронируй мне комнату
+Дай комнату
+Забронируй комнату для меня
+Забей комнату мне
+Хочу комнату
+Забронируй мне комнату в <START:time> 13:00 <END> на <START:floor> 4 <END> этаже
+Мне нужна комнату в <START:time> 17:00 <END> на <START:floor> 9 <END> этаже
+Нужен рум в <START:time> 18:00 <END> на <START:floor> 9 <END> этаже
+Забей рум в <START:time> 2 <END> на <START:floor> 12  <END> этаже
+Забронируй комнату в <START:time> 18:00 <END> на <START:floor> 6 <END> этаже
+Комната в <START:time> 13:00 <END> на <START:floor> 8 <END>
+Да йкомнату в <START:time> 13:00 <END> на <START:floor> 5 <END>
+Хочу комнату на <START:floor> 13  <END> в <START:time> 15:00 <END>
+Нужен рум в <START:time> 16:00 <END> на <START:floor> 9  <END>
+Забукай рум в <START:time> 08:00 <END> на <START:floor> 12 <END> floor
+Забронируй комнату <START:room> 0906 <END> в <START:time> 12:00 <END>
+Забей комнату <START:room> 1302 <END> на <START:time> 15:30 <END>
+Комнату <START:room> 0903-1 <END> на <START:time> 14:30 <END>
+Возьми комнату <START:room> 701 <END> на <START:time> 14:00 <END>
+Забронируй комнату <START:room> 1204-1 <END> на <START:time> 17:00 <END>
+Хочу <START:room> 0903-2 <END> в <START:time> 16:00 <END>
+Мне нужна <START:room> 803 <END> на <START:time> 13:00 <END>
+Я хочу <START:room> 1206 <END> в <START:time> 14:00 <END>
+Я хочу комнату на <START:floor> 9 <END> этаже
+Хочу комнату на <START:floor> 8 <END> этаже
+Нужна комната на <START:floor> 10 <END> этаже
+Забей комнату на <START:floor> 5 <END> этаже
+Забукай комнату на <START:floor> 3 <END> этаже
+Комнату на <START:floor> 5 <END>
+Забей на <START:floor> 8 <END> этаже
+Комнату на <START:time> 6 <END>
+Забронируй комнату на <START:time> 13 <END>
+Дай мне комнату в <START:time> 15:00 <END>
+Нужна переговорная в <START:time> 13:00 <END>
+Комнату на митинг в <START:time> 17 <END>
+Забронируй комнату в <START:time> 10:00 <END>
+Комнату в <START:time> 13:30 <END>
+Нужна комната <START:room> 1201 <END>
+Хочу комнату <START:room> 1501-1 <END>
+Хочу <START:room> 0906-2 <END>
+Забей рум <START:room> 1001-3 <END>
+Забронируй рум <START:room> 1201 <END>

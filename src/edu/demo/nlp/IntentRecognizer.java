@@ -21,8 +21,8 @@ public class IntentRecognizer {
     private HashMap<String, String> intentMapper = new HashMap<>();
     private static final Logger LOG = LoggerFactory.getLogger(IntentRecognizer.class);
 
-    public IntentRecognizer(String intentsMappingFile) {
-        try (BufferedReader br = new BufferedReader(new FileReader(intentsMappingFile))) {
+    public IntentRecognizer(String trainingDirectory) {
+        try (BufferedReader br = new BufferedReader(new FileReader(trainingDirectory + "/intents_mapping.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] entries = line.split("::");
@@ -33,11 +33,11 @@ public class IntentRecognizer {
         }
     }
 
-    public void train(String trainingDirectory, boolean validate) {
+    public void train(String trainingDirectory, String language, boolean validate) {
         try (InputStream inputStream = new FileInputStream(trainingDirectory + "/dataset.txt")) {
             ObjectStream<String> lineStream = new PlainTextByLineStream(inputStream, "UTF-8");
             ObjectStream<DocumentSample> sampleStream = new DocumentSampleStream(lineStream);
-            model = DocumentCategorizerME.train("en", sampleStream, 0, 50);
+            model = DocumentCategorizerME.train(language, sampleStream, 0, 50);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -80,13 +80,8 @@ public class IntentRecognizer {
     private boolean validateQuery(String query) {
         String[] entries = query.split("::");
 
-        Pair<Integer, String> expected = null;
-        Pair<Integer, String> actual = null;
-
-        for (int i = 1; i < entries.length; i++) {
-            expected = new Pair<>(new Integer(entries[1]), intentMapper.get(entries[1]));
-        }
-        actual = this.parse(entries[0]);
+        Pair<Integer, String> expected = new Pair<>(new Integer(entries[1]), intentMapper.get(entries[1]));
+        Pair<Integer, String> actual = this.parse(entries[0]);
 
         LOG.info("Query:    {}", entries[0]);
         LOG.info("Actual:   {}", actual);
